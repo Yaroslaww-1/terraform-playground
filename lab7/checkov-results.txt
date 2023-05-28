@@ -1,0 +1,1166 @@
+
+       _               _              
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V / 
+  \___|_| |_|\___|\___|_|\_\___/ \_/  
+                                      
+By bridgecrew.io | version: 2.3.261 
+
+terraform scan results:
+
+Passed checks: 92, Failed checks: 45, Skipped checks: 0
+
+Check: CKV_AWS_41: "Ensure no hard coded AWS access key and secret key exists in provider"
+	PASSED for resource: aws.default
+	File: /main.tf:12-14
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_5
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in lambda environment"
+	PASSED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_3
+Check: CKV_AWS_66: "Ensure that CloudWatch Log Group specifies retention days"
+	PASSED for resource: module.consumer.aws_cloudwatch_log_group.consumer_lambda
+	File: /modules/consumer/main.tf:21-25
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/logging_13
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: module.consumer.aws_iam_role.consumer_lambda_exec
+	File: /modules/consumer/main.tf:27-41
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_45
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: module.consumer.aws_iam_role.consumer_lambda_exec
+	File: /modules/consumer/main.tf:27-41
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_44
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.consumer.aws_iam_role.consumer_lambda_exec
+	File: /modules/consumer/main.tf:27-41
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/iam_47
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/iam_48
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/iam_47
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/iam_48
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.consumer.aws_iam_role_policy_attachment.consumer_lambda_policy_sqs
+	File: /modules/consumer/main.tf:72-75
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.consumer.aws_iam_role_policy_attachment.consumer_lambda_policy_s3
+	File: /modules/consumer/main.tf:77-80
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.consumer.aws_iam_role_policy_attachment.consumer_lambda_policy_basic
+	File: /modules/consumer/main.tf:82-85
+	Calling File: /main.tf:34-41
+Check: CKV_AWS_28: "Ensure Dynamodb point in time recovery (backup) is enabled"
+	PASSED for resource: module.db.aws_dynamodb_table.db_dynamodb_table
+	File: /modules/db/dynamodb.tf:1-16
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/general_6
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in lambda environment"
+	PASSED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_3
+Check: CKV_AWS_66: "Ensure that CloudWatch Log Group specifies retention days"
+	PASSED for resource: module.db.aws_cloudwatch_log_group.db_lambda
+	File: /modules/db/main.tf:21-25
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/logging_13
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: module.db.aws_iam_role.db_lambda_exec
+	File: /modules/db/main.tf:27-41
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_45
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: module.db.aws_iam_role.db_lambda_exec
+	File: /modules/db/main.tf:27-41
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_44
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.db.aws_iam_role.db_lambda_exec
+	File: /modules/db/main.tf:27-41
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/iam_47
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/iam_48
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/iam_47
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/iam_48
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.db.aws_iam_role_policy_attachment.db_lambda_policy_sqs
+	File: /modules/db/main.tf:72-75
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.db.aws_iam_role_policy_attachment.db_lambda_policy_dynamodb
+	File: /modules/db/main.tf:77-80
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.db.aws_iam_role_policy_attachment.db_lambda_policy_basic
+	File: /modules/db/main.tf:82-85
+	Calling File: /main.tf:43-48
+Check: CKV_AWS_76: "Ensure API Gateway has Access Logging enabled"
+	PASSED for resource: module.producer.aws_apigatewayv2_stage.producer_gateway
+	File: /modules/producer/gateway.tf:6-29
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/logging_17
+Check: CKV_AWS_66: "Ensure that CloudWatch Log Group specifies retention days"
+	PASSED for resource: module.producer.aws_cloudwatch_log_group.producer_gateway_logs
+	File: /modules/producer/gateway.tf:46-50
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/logging_13
+Check: CKV_AWS_301: "Ensure that AWS Lambda function is not publicly accessible"
+	PASSED for resource: module.producer.aws_lambda_permission.producer_gateway_logs
+	File: /modules/producer/gateway.tf:52-59
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_45: "Ensure no hard-coded secrets exist in lambda environment"
+	PASSED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_secrets_3
+Check: CKV_AWS_66: "Ensure that CloudWatch Log Group specifies retention days"
+	PASSED for resource: module.producer.aws_cloudwatch_log_group.producer_lambda
+	File: /modules/producer/main.tf:22-26
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/logging_13
+Check: CKV_AWS_61: "Ensure AWS IAM policy does not allow assume role permission across all services"
+	PASSED for resource: module.producer.aws_iam_role.producer_lambda_exec
+	File: /modules/producer/main.tf:28-43
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_45
+Check: CKV_AWS_60: "Ensure IAM role allows only specific services or principals to assume it"
+	PASSED for resource: module.producer.aws_iam_role.producer_lambda_exec
+	File: /modules/producer/main.tf:28-43
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_iam_44
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.producer.aws_iam_role.producer_lambda_exec
+	File: /modules/producer/main.tf:28-43
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_288: "Ensure IAM policies does not allow data exfiltration"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_289: "Ensure IAM policies does not allow permissions management / resource exposure without constraints"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_355: "Ensure no IAM policies documents allow "*" as a statement's resource"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_286: "Ensure IAM policies does not allow privilege escalation"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_287: "Ensure IAM policies does not allow credentials exposure"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_290: "Ensure IAM policies does not allow write access without constraints"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_62: "Ensure IAM policies that allow full "*-*" administrative privileges are not created"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/iam_47
+Check: CKV_AWS_63: "Ensure no IAM policies documents allow "*" as a statement's actions"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/iam_48
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.producer.aws_iam_role_policy_attachment.producer_lambda_policy_sqs
+	File: /modules/producer/main.tf:58-61
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_274: "Disallow IAM roles, users, and groups from using the AWS AdministratorAccess policy"
+	PASSED for resource: module.producer.aws_iam_role_policy_attachment.producer_lambda_policy_basic
+	File: /modules/producer/main.tf:63-66
+	Calling File: /main.tf:24-32
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Calling File: /main.tf:16-18
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_24
+Check: CKV_AWS_93: "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)"
+	PASSED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Calling File: /main.tf:16-18
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_s3_24
+Check: CKV_AWS_168: "Ensure SQS queue policy is not public by only allowing specific services or principals to access it"
+	PASSED for resource: module.sqs.aws_sqs_queue.s3_sqs
+	File: /modules/sqs/main.tf:1-7
+	Calling File: /main.tf:20-22
+	Guide: https://docs.bridgecrew.io/docs/ensure-sqs-queue-policy-is-not-public-by-only-allowing-specific-services-or-principals-to-access-it
+Check: CKV_AWS_168: "Ensure SQS queue policy is not public by only allowing specific services or principals to access it"
+	PASSED for resource: module.sqs.aws_sqs_queue.db_sqs
+	File: /modules/sqs/main.tf:9-15
+	Calling File: /main.tf:20-22
+	Guide: https://docs.bridgecrew.io/docs/ensure-sqs-queue-policy-is-not-public-by-only-allowing-specific-services-or-principals-to-access-it
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	PASSED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone
+Check: CKV_AWS_20: "S3 Bucket has an ACL defined which allows public READ access."
+	PASSED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/s3_1-acl-read-permissions-everyone
+Check: CKV2_AWS_43: "Ensure S3 Bucket does not allow access to all Authenticated users"
+	PASSED for resource: module.s3.aws_s3_bucket_acl.deployment_bucket_acl
+	File: /modules/s3/main.tf:5-9
+	Guide: https://docs.bridgecrew.io/docs/ensure-s3-bucket-does-not-allow-access-to-all-authenticated-users
+Check: CKV2_AWS_43: "Ensure S3 Bucket does not allow access to all Authenticated users"
+	PASSED for resource: module.s3.aws_s3_bucket_acl.data_bucket_acl
+	File: /modules/s3/main.tf:23-27
+	Guide: https://docs.bridgecrew.io/docs/ensure-s3-bucket-does-not-allow-access-to-all-authenticated-users
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	PASSED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest
+Check: CKV_AWS_19: "Ensure all data stored in the S3 bucket is securely encrypted at rest"
+	PASSED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/s3_14-data-encrypted-at-rest
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: module.consumer.aws_iam_role.consumer_lambda_exec
+	File: /modules/consumer/main.tf:27-41
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: module.consumer.aws_iam_role_policy_attachment.consumer_lambda_policy_basic
+	File: /modules/consumer/main.tf:82-85
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: module.db.aws_iam_role.db_lambda_exec
+	File: /modules/db/main.tf:27-41
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: module.db.aws_iam_role_policy_attachment.db_lambda_policy_basic
+	File: /modules/db/main.tf:82-85
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: module.producer.aws_iam_role.producer_lambda_exec
+	File: /modules/producer/main.tf:28-43
+Check: CKV2_AWS_56: "Ensure AWS Managed IAMFullAccess IAM policy is not used."
+	PASSED for resource: module.producer.aws_iam_role_policy_attachment.producer_lambda_policy_basic
+	File: /modules/producer/main.tf:63-66
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.consumer.aws_iam_policy.sqs_read_policy
+	File: /modules/consumer/main.tf:43-58
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.consumer.aws_iam_policy.s3_upload_policy
+	File: /modules/consumer/main.tf:60-70
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.db.aws_iam_policy.sqs_read_policy
+	File: /modules/db/main.tf:43-58
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.db.aws_iam_policy.dynamodb_write_policy
+	File: /modules/db/main.tf:60-70
+Check: CKV2_AWS_40: "Ensure AWS IAM policy does not allow full IAM privileges"
+	PASSED for resource: module.producer.aws_iam_policy.sqs_publish_policy
+	File: /modules/producer/main.tf:45-56
+Check: CKV2_AWS_51: "Ensure AWS API Gateway endpoints uses client certificate authentication"
+	PASSED for resource: module.producer.aws_apigatewayv2_stage.producer_gateway
+	File: /modules/producer/gateway.tf:6-29
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	PASSED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone
+Check: CKV_AWS_57: "S3 Bucket has an ACL defined which allows public WRITE access."
+	PASSED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/s3_2-acl-write-permissions-everyone
+Check: CKV_AWS_272: "Ensure AWS Lambda function is configured to validate code-signing"
+	FAILED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+
+		1  | resource "aws_lambda_function" "consumer_lambda" {
+		2  |   function_name = "LambdaConsumer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.consumer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "consumer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.consumer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       BUCKET_NAME = var.data_bucket_name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.consumer_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+	FAILED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+		1  | resource "aws_lambda_function" "consumer_lambda" {
+		2  |   function_name = "LambdaConsumer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.consumer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "consumer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.consumer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       BUCKET_NAME = var.data_bucket_name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.consumer_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environmental variable"
+	FAILED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_5
+
+		1  | resource "aws_lambda_function" "consumer_lambda" {
+		2  |   function_name = "LambdaConsumer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.consumer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "consumer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.consumer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       BUCKET_NAME = var.data_bucket_name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.consumer_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_50: "X-ray tracing is enabled for Lambda"
+	FAILED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_4
+
+		1  | resource "aws_lambda_function" "consumer_lambda" {
+		2  |   function_name = "LambdaConsumer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.consumer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "consumer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.consumer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       BUCKET_NAME = var.data_bucket_name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.consumer_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+	FAILED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+		1  | resource "aws_lambda_function" "consumer_lambda" {
+		2  |   function_name = "LambdaConsumer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.consumer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "consumer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.consumer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       BUCKET_NAME = var.data_bucket_name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.consumer_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+	FAILED for resource: module.consumer.aws_lambda_function.consumer_lambda
+	File: /modules/consumer/main.tf:1-19
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+		1  | resource "aws_lambda_function" "consumer_lambda" {
+		2  |   function_name = "LambdaConsumer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.consumer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "consumer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.consumer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       BUCKET_NAME = var.data_bucket_name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.consumer_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_338: "Ensure CloudWatch log groups retains logs for at least 1 year"
+	FAILED for resource: module.consumer.aws_cloudwatch_log_group.consumer_lambda
+	File: /modules/consumer/main.tf:21-25
+	Calling File: /main.tf:34-41
+
+		21 | resource "aws_cloudwatch_log_group" "consumer_lambda" {
+		22 |   name = "/aws/lambda/${aws_lambda_function.consumer_lambda.function_name}"
+		23 | 
+		24 |   retention_in_days = 30
+		25 | }
+
+Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
+	FAILED for resource: module.consumer.aws_cloudwatch_log_group.consumer_lambda
+	File: /modules/consumer/main.tf:21-25
+	Calling File: /main.tf:34-41
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		21 | resource "aws_cloudwatch_log_group" "consumer_lambda" {
+		22 |   name = "/aws/lambda/${aws_lambda_function.consumer_lambda.function_name}"
+		23 | 
+		24 |   retention_in_days = 30
+		25 | }
+
+Check: CKV_AWS_119: "Ensure DynamoDB Tables are encrypted using a KMS Customer Managed CMK"
+	FAILED for resource: module.db.aws_dynamodb_table.db_dynamodb_table
+	File: /modules/db/dynamodb.tf:1-16
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-dynamodb-tables-are-encrypted
+
+		1  | resource "aws_dynamodb_table" "db_dynamodb_table" {
+		2  |   name = "db_dynamodb_table"
+		3  |   billing_mode = "PROVISIONED"
+		4  |   read_capacity= "1"
+		5  |   write_capacity= "1"
+		6  | 
+		7  |   point_in_time_recovery {
+		8  |     enabled = true
+		9  |   }
+		10 | 
+		11 |   attribute {
+		12 |     name = "requestId"
+		13 |     type = "S"
+		14 |   }
+		15 |   hash_key = "requestId"
+		16 | }
+Check: CKV_AWS_272: "Ensure AWS Lambda function is configured to validate code-signing"
+	FAILED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+
+		1  | resource "aws_lambda_function" "db_lambda" {
+		2  |   function_name = "LambdaDb"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.db_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "db.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.db_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       TABLE_NAME = aws_dynamodb_table.db_dynamodb_table.name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.db_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+	FAILED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+		1  | resource "aws_lambda_function" "db_lambda" {
+		2  |   function_name = "LambdaDb"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.db_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "db.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.db_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       TABLE_NAME = aws_dynamodb_table.db_dynamodb_table.name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.db_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environmental variable"
+	FAILED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_5
+
+		1  | resource "aws_lambda_function" "db_lambda" {
+		2  |   function_name = "LambdaDb"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.db_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "db.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.db_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       TABLE_NAME = aws_dynamodb_table.db_dynamodb_table.name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.db_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_50: "X-ray tracing is enabled for Lambda"
+	FAILED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_4
+
+		1  | resource "aws_lambda_function" "db_lambda" {
+		2  |   function_name = "LambdaDb"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.db_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "db.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.db_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       TABLE_NAME = aws_dynamodb_table.db_dynamodb_table.name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.db_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+	FAILED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+		1  | resource "aws_lambda_function" "db_lambda" {
+		2  |   function_name = "LambdaDb"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.db_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "db.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.db_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       TABLE_NAME = aws_dynamodb_table.db_dynamodb_table.name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.db_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+	FAILED for resource: module.db.aws_lambda_function.db_lambda
+	File: /modules/db/main.tf:1-19
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+		1  | resource "aws_lambda_function" "db_lambda" {
+		2  |   function_name = "LambdaDb"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.db_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "db.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.db_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       TABLE_NAME = aws_dynamodb_table.db_dynamodb_table.name
+		15 |     }
+		16 |   }
+		17 | 
+		18 |   role = aws_iam_role.db_lambda_exec.arn
+		19 | }
+
+Check: CKV_AWS_338: "Ensure CloudWatch log groups retains logs for at least 1 year"
+	FAILED for resource: module.db.aws_cloudwatch_log_group.db_lambda
+	File: /modules/db/main.tf:21-25
+	Calling File: /main.tf:43-48
+
+		21 | resource "aws_cloudwatch_log_group" "db_lambda" {
+		22 |   name = "/aws/lambda/${aws_lambda_function.db_lambda.function_name}"
+		23 | 
+		24 |   retention_in_days = 30
+		25 | }
+
+Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
+	FAILED for resource: module.db.aws_cloudwatch_log_group.db_lambda
+	File: /modules/db/main.tf:21-25
+	Calling File: /main.tf:43-48
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		21 | resource "aws_cloudwatch_log_group" "db_lambda" {
+		22 |   name = "/aws/lambda/${aws_lambda_function.db_lambda.function_name}"
+		23 | 
+		24 |   retention_in_days = 30
+		25 | }
+
+Check: CKV_AWS_309: "Ensure API GatewayV2 routes specify an authorization type"
+	FAILED for resource: module.producer.aws_apigatewayv2_route.producer_gateway_integration
+	File: /modules/producer/gateway.tf:39-44
+	Calling File: /main.tf:24-32
+
+		39 | resource "aws_apigatewayv2_route" "producer_gateway_integration" {
+		40 |   api_id = aws_apigatewayv2_api.producer_gateway.id
+		41 | 
+		42 |   route_key = "POST /"
+		43 |   target    = "integrations/${aws_apigatewayv2_integration.producer_gateway_integration.id}"
+		44 | }
+
+Check: CKV_AWS_338: "Ensure CloudWatch log groups retains logs for at least 1 year"
+	FAILED for resource: module.producer.aws_cloudwatch_log_group.producer_gateway_logs
+	File: /modules/producer/gateway.tf:46-50
+	Calling File: /main.tf:24-32
+
+		46 | resource "aws_cloudwatch_log_group" "producer_gateway_logs" {
+		47 |   name = "/aws/api_gw/${aws_apigatewayv2_api.producer_gateway.name}"
+		48 | 
+		49 |   retention_in_days = 30
+		50 | }
+
+Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
+	FAILED for resource: module.producer.aws_cloudwatch_log_group.producer_gateway_logs
+	File: /modules/producer/gateway.tf:46-50
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		46 | resource "aws_cloudwatch_log_group" "producer_gateway_logs" {
+		47 |   name = "/aws/api_gw/${aws_apigatewayv2_api.producer_gateway.name}"
+		48 | 
+		49 |   retention_in_days = 30
+		50 | }
+
+Check: CKV_AWS_272: "Ensure AWS Lambda function is configured to validate code-signing"
+	FAILED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+
+		1  | resource "aws_lambda_function" "producer_lambda" {
+		2  |   function_name = "LambdaProducer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.producer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "producer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.producer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       S3_QUEUE_URL = var.s3_sqs_url
+		15 |       DB_QUEUE_URL = var.db_sqs_url
+		16 |     }
+		17 |   }
+		18 | 
+		19 |   role = aws_iam_role.producer_lambda_exec.arn
+		20 | }
+
+Check: CKV_AWS_116: "Ensure that AWS Lambda function is configured for a Dead Letter Queue(DLQ)"
+	FAILED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-a-dead-letter-queue-dlq
+
+		1  | resource "aws_lambda_function" "producer_lambda" {
+		2  |   function_name = "LambdaProducer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.producer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "producer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.producer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       S3_QUEUE_URL = var.s3_sqs_url
+		15 |       DB_QUEUE_URL = var.db_sqs_url
+		16 |     }
+		17 |   }
+		18 | 
+		19 |   role = aws_iam_role.producer_lambda_exec.arn
+		20 | }
+
+Check: CKV_AWS_173: "Check encryption settings for Lambda environmental variable"
+	FAILED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_5
+
+		1  | resource "aws_lambda_function" "producer_lambda" {
+		2  |   function_name = "LambdaProducer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.producer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "producer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.producer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       S3_QUEUE_URL = var.s3_sqs_url
+		15 |       DB_QUEUE_URL = var.db_sqs_url
+		16 |     }
+		17 |   }
+		18 | 
+		19 |   role = aws_iam_role.producer_lambda_exec.arn
+		20 | }
+
+Check: CKV_AWS_50: "X-ray tracing is enabled for Lambda"
+	FAILED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/bc_aws_serverless_4
+
+		1  | resource "aws_lambda_function" "producer_lambda" {
+		2  |   function_name = "LambdaProducer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.producer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "producer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.producer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       S3_QUEUE_URL = var.s3_sqs_url
+		15 |       DB_QUEUE_URL = var.db_sqs_url
+		16 |     }
+		17 |   }
+		18 | 
+		19 |   role = aws_iam_role.producer_lambda_exec.arn
+		20 | }
+
+Check: CKV_AWS_117: "Ensure that AWS Lambda function is configured inside a VPC"
+	FAILED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-inside-a-vpc-1
+
+		1  | resource "aws_lambda_function" "producer_lambda" {
+		2  |   function_name = "LambdaProducer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.producer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "producer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.producer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       S3_QUEUE_URL = var.s3_sqs_url
+		15 |       DB_QUEUE_URL = var.db_sqs_url
+		16 |     }
+		17 |   }
+		18 | 
+		19 |   role = aws_iam_role.producer_lambda_exec.arn
+		20 | }
+
+Check: CKV_AWS_115: "Ensure that AWS Lambda function is configured for function-level concurrent execution limit"
+	FAILED for resource: module.producer.aws_lambda_function.producer_lambda
+	File: /modules/producer/main.tf:1-20
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-aws-lambda-function-is-configured-for-function-level-concurrent-execution-limit
+
+		1  | resource "aws_lambda_function" "producer_lambda" {
+		2  |   function_name = "LambdaProducer"
+		3  | 
+		4  |   s3_bucket = var.deployment_bucket_id
+		5  |   s3_key    = aws_s3_object.producer_lambda.key
+		6  | 
+		7  |   runtime = "python3.7"
+		8  |   handler = "producer.lambda_handler"
+		9  | 
+		10 |   source_code_hash = data.archive_file.producer_lambda.output_base64sha256
+		11 | 
+		12 |   environment {
+		13 |     variables = {
+		14 |       S3_QUEUE_URL = var.s3_sqs_url
+		15 |       DB_QUEUE_URL = var.db_sqs_url
+		16 |     }
+		17 |   }
+		18 | 
+		19 |   role = aws_iam_role.producer_lambda_exec.arn
+		20 | }
+
+Check: CKV_AWS_338: "Ensure CloudWatch log groups retains logs for at least 1 year"
+	FAILED for resource: module.producer.aws_cloudwatch_log_group.producer_lambda
+	File: /modules/producer/main.tf:22-26
+	Calling File: /main.tf:24-32
+
+		22 | resource "aws_cloudwatch_log_group" "producer_lambda" {
+		23 |   name = "/aws/lambda/${aws_lambda_function.producer_lambda.function_name}"
+		24 | 
+		25 |   retention_in_days = 30
+		26 | }
+
+Check: CKV_AWS_158: "Ensure that CloudWatch Log Group is encrypted by KMS"
+	FAILED for resource: module.producer.aws_cloudwatch_log_group.producer_lambda
+	File: /modules/producer/main.tf:22-26
+	Calling File: /main.tf:24-32
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-cloudwatch-log-group-is-encrypted-by-kms
+
+		22 | resource "aws_cloudwatch_log_group" "producer_lambda" {
+		23 |   name = "/aws/lambda/${aws_lambda_function.producer_lambda.function_name}"
+		24 | 
+		25 |   retention_in_days = 30
+		26 | }
+
+Check: CKV_AWS_27: "Ensure all data stored in the SQS queue is encrypted"
+	FAILED for resource: module.sqs.aws_sqs_queue.s3_sqs
+	File: /modules/sqs/main.tf:1-7
+	Calling File: /main.tf:20-22
+	Guide: https://docs.bridgecrew.io/docs/general_16-encrypt-sqs-queue
+
+		1 | resource "aws_sqs_queue" "s3_sqs" {
+		2 |   name                      = "s3-sqs"
+		3 |   delay_seconds             = 0
+		4 |   max_message_size          = 2048
+		5 |   message_retention_seconds = 86400
+		6 |   receive_wait_time_seconds = 10
+		7 | }
+
+Check: CKV_AWS_27: "Ensure all data stored in the SQS queue is encrypted"
+	FAILED for resource: module.sqs.aws_sqs_queue.db_sqs
+	File: /modules/sqs/main.tf:9-15
+	Calling File: /main.tf:20-22
+	Guide: https://docs.bridgecrew.io/docs/general_16-encrypt-sqs-queue
+
+		9  | resource "aws_sqs_queue" "db_sqs" {
+		10 |   name                      = "db-sqs"
+		11 |   delay_seconds             = 0
+		12 |   max_message_size          = 2048
+		13 |   message_retention_seconds = 86400
+		14 |   receive_wait_time_seconds = 10
+		15 | }
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/s3_16-enable-versioning
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/s3_16-enable-versioning
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV2_AWS_6: "Ensure that S3 bucket has a Public Access block"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/s3-bucket-should-have-public-access-blocks-defaults-to-false-if-the-public-access-block-is-not-attached
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV_AWS_144: "Ensure that S3 bucket has cross-region replication enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-s3-bucket-has-cross-region-replication-enabled
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/s3_13-enable-logging
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/s3_13-enable-logging
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+Check: CKV2_AWS_16: "Ensure that Auto Scaling is enabled on your DynamoDB tables"
+	FAILED for resource: module.db.aws_dynamodb_table.db_dynamodb_table
+	File: /modules/db/dynamodb.tf:1-16
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-auto-scaling-is-enabled-on-your-dynamodb-tables
+
+		1  | resource "aws_dynamodb_table" "db_dynamodb_table" {
+		2  |   name = "db_dynamodb_table"
+		3  |   billing_mode = "PROVISIONED"
+		4  |   read_capacity= "1"
+		5  |   write_capacity= "1"
+		6  | 
+		7  |   point_in_time_recovery {
+		8  |     enabled = true
+		9  |   }
+		10 | 
+		11 |   attribute {
+		12 |     name = "requestId"
+		13 |     type = "S"
+		14 |   }
+		15 |   hash_key = "requestId"
+		16 | }
+Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV2_AWS_61: "Ensure that an S3 bucket has a lifecycle configuration"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV_AWS_145: "Ensure that S3 buckets are encrypted with KMS by default"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+	Guide: https://docs.bridgecrew.io/docs/ensure-that-s3-buckets-are-encrypted-with-kms-by-default
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.deployment_bucket
+	File: /modules/s3/main.tf:1-3
+
+		1 | resource "aws_s3_bucket" "deployment_bucket" {
+		2 |   bucket = "ucu-borodaienko-deployment"
+		3 | }
+
+Check: CKV2_AWS_62: "Ensure S3 buckets should have event notifications enabled"
+	FAILED for resource: module.s3.aws_s3_bucket.data_bucket
+	File: /modules/s3/main.tf:19-21
+
+		19 | resource "aws_s3_bucket" "data_bucket" {
+		20 |   bucket = "ucu-borodaienko-data"
+		21 | }
+
+
